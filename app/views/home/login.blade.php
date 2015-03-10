@@ -4,7 +4,7 @@
 
 
 <div class="row">
-	<div class="span4 offset1">
+	<div class="span offset1">
 		<div class="well">
 			@if(Auth::user())
 			<legend>Ya estas logeado</legend>

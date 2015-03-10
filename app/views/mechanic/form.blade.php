@@ -5,11 +5,8 @@
 <div class="row">
 	<div class="span offset1">
 		<div class="well">
-			@if(Auth::user())
-			<legend>Ya iniciaste sesion</legend>
-			@else
-			<legend>Registrate por favor</legend>
-			{{ Form::open(array('url' => 'register')) }}
+			<h4>Crear Mecanico</h4>
+			{{ Form::open(array('url' => 'mechanic/create')) }}
 			@if($errors->any())
 			<div class="alert alert-error">
 				<a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -21,10 +18,9 @@
 			{{ Form::text('name', '', array('placeholder' => 'Nombre')) }}<br>
 			{{ Form::text('lastname', '', array('placeholder' => 'Apellido')) }}<br>
 			{{ Form::password('password', array('placeholder' => 'Password')) }}<br>
-			{{ Form::submit('Registrarse', array('class' => 'btn btn-success')) }}
-			{{ HTML::link('/', 'Cancelar', array('class' => 'btn btn-danger')) }}<br>
+			{{ Form::submit('Crear', array('class' => 'btn btn-success')) }}
+			{{ HTML::link('owner/mechanic', 'Cancelar', array('class' => 'btn btn-danger')) }}<br>
 			{{ Form::close() }}
-			@endif
 		</div>
 	</div>
 </div>

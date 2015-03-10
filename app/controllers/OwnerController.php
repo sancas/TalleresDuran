@@ -18,4 +18,9 @@ class OwnerController extends \BaseController {
 		return View::make('owner.mechanic')->with('users', $users);
 	}
 
+	public function getCustomer()
+	{
+		$users = User::all();
+		return View::make('owner.customer')->with('users', $users);
+	}
 }

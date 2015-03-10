@@ -43,19 +43,31 @@ Route::group(array('before' => 'auth'), function(){
 
 	Route::get('owner', 'OwnerController@getIndex');
   Route::get('owner/mechanic', 'OwnerController@getMechanic');
+  Route::get('owner/customer', 'OwnerController@getCustomer');
 
 });
 
 Route::group(array('before' => 'auth'), function(){
 
 	Route::get('mechanic', 'MechanicController@getIndex');
+  Route::get('mechanic/create', 'MechanicController@getCreate');
+  Route::get('mechanic/edit', 'MechanicController@edit');
+
+  Route::post('mechanic/create', 'MechanicController@postCreate');
+  Route::post('mechanic/edit', 'MechanicController@update');
 
 });
 
 Route::group(array('before' => 'auth'), function(){
 
 	Route::get('customer', 'CustomerController@getIndex');
+  Route::get('customer/create', 'CustomerController@getCreate');
+  Route::get('customer/edit', 'CustomerController@edit');
+
+  Route::post('customer/create', 'CustomerController@postCreate');
+  Route::post('customer/edit', 'CustomerController@update');
 
 });
 
 Route::resource('mechanic', 'MechanicController');
+Route::resource('customer', 'CustomerController');
