@@ -17,9 +17,24 @@
 <div class="row-fluid">
 	<div class="span3">
 		<ul class="nav nav-list well">
-			@if(Auth::user())
-			<li class="nav-header">{{ ucwords(Auth::user()->username) }}</li>
-			<li>{{ HTML::link('mycar', 'Mis carros') }}</li>
+			@if (Auth::user())
+				<li class="nav-header">{{ ucwords(Auth::user()->username) }}</li>
+				@if (Auth::user()->hasRole('owner'))
+
+					<li>{{ HTML::link('owner/mechanic', 'Mecanicos') }}</li>
+					<li>{{ HTML::link('owner/customer', 'Clientes') }}</li>
+
+				@endif
+				@if (Auth::user()->hasRole('mechanic'))
+
+					<li>{{ HTML::link('mechanic/cars', 'Carros') }}</li>
+
+				@endif
+				@if (Auth::user()->hasRole('customer'))
+
+						<li>{{ HTML::link('customer/cars', 'Carros') }}</li>
+
+				@endif
 			<li>{{ HTML::link('logout', 'Logout') }}</li>
 			@else
 			<li>{{ HTML::link('login', 'Login') }}</li>

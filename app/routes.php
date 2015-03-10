@@ -41,6 +41,21 @@ Route::post('password/reset/{token}', array(
 
 Route::group(array('before' => 'auth'), function(){
 
-	Route::get('admin', 'AdminController@getIndex');
+	Route::get('owner', 'OwnerController@getIndex');
+  Route::get('owner/mechanic', 'OwnerController@getMechanic');
 
 });
+
+Route::group(array('before' => 'auth'), function(){
+
+	Route::get('mechanic', 'MechanicController@getIndex');
+
+});
+
+Route::group(array('before' => 'auth'), function(){
+
+	Route::get('customer', 'CustomerController@getIndex');
+
+});
+
+Route::resource('mechanic', 'MechanicController');

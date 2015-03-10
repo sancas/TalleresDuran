@@ -45,8 +45,18 @@ class HomeController extends BaseController {
 
 			if(Auth::attempt($credentials))
 			{
-
-				return Redirect::to('admin');
+				if (Auth::user()->hasRole('owner'))
+				{
+					return Redirect::to('owner');
+				}
+				else if (Auth::user()->hasRole('mechanic'))
+				{
+					return Redirect::to('mechanic');
+				}
+				else if (Auth::user()->hasRole('customer'))
+				{
+					return Redirect::to('customer');
+				}
 
 			} else {
 
@@ -80,6 +90,8 @@ class HomeController extends BaseController {
 			$user->lastname = $input['lastname'];
 			$user->password = $password;
 			$user->save();
+
+			$user->makeEmployee('customer');
 
 			return Redirect::to('login');
 
