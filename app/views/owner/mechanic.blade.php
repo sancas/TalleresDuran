@@ -11,7 +11,7 @@
 			<th>Usuario</th>
 			<th>Nombre</th>
 			<th>Email</th>
-			<th>Acciones</th>
+			<th colspan="3">Acciones</th>
 		</tr>
 		@foreach ($users as $user)
 			@if($user->hasRole('mechanic'))
@@ -21,8 +21,14 @@
 				<td>{{ $user->email }}</td>
 				<td>
 					{{ HTML::linkRoute('mechanic.show', 'Ver', array($user->id), array('class' => 'btn btn-info')) }}
+				</td>
+				<td>
 					{{ HTML::linkRoute('mechanic.edit', 'Editar', array($user->id), array('class' => 'btn btn-warning')) }}
-					{{ HTML::linkRoute('mechanic.destroy', 'Borrar', array($user->id), array('class' => 'btn btn-danger')) }}
+				</td>
+				<td>
+					{{ Form::model($user, array('route' => array('mechanic.destroy', $user->id), 'method' => 'DELETE', 'role' => 'form')) }}
+						{{ Form::submit('Borrar', array('class' => 'btn btn-danger')) }}
+					{{ Form::close() }}
 				</td>
 			</tr>
 			@endif
