@@ -40,33 +40,35 @@ Route::post('password/reset/{token}', array(
 ));
 
 Route::group(array('before' => 'auth'), function(){
-
-	Route::get('owner', 'OwnerController@getIndex');
-  Route::get('owner/mechanic', 'OwnerController@getMechanic');
-  Route::get('owner/customer', 'OwnerController@getCustomer');
-
-});
-
-Route::group(array('before' => 'auth'), function(){
-
-	Route::get('mechanic', 'MechanicController@getIndex');
-  Route::get('mechanic/create', 'MechanicController@getCreate');
-  Route::get('mechanic/edit', 'MechanicController@edit');
-
-  Route::post('mechanic/create', 'MechanicController@postCreate');
-  Route::post('mechanic/edit', 'MechanicController@update');
-
-});
-
-Route::group(array('before' => 'auth'), function(){
-
-	Route::get('customer', 'CustomerController@getIndex');
-  Route::get('customer/create', 'CustomerController@getCreate');
-  Route::get('customer/edit', 'CustomerController@edit');
-
-  Route::post('customer/create', 'CustomerController@postCreate');
-  Route::post('customer/edit', 'CustomerController@update');
-
+  //Rutas para owners
+  if (!is_null(Auth::user())) //Si existe algun usuario logeado
+  {
+    if (Auth::user()->hasRole('owner')) //Si el usuario logeado es un owner
+    {
+      //Hacer todas estas rutas validas
+    	Route::get('owner', 'OwnerController@getIndex');
+      Route::get('owner/mechanic', 'OwnerController@getMechanic');
+      Route::get('owner/customer', 'OwnerController@getCustomer');
+      Route::get('customer/create', 'CustomerController@getCreate');
+      Route::get('customer/edit', 'CustomerController@edit');
+      Route::post('customer/create', 'CustomerController@postCreate');
+      Route::post('customer/edit', 'CustomerController@update');
+      Route::get('mechanic/create', 'MechanicController@getCreate');
+      Route::get('mechanic/edit', 'MechanicController@edit');
+      Route::post('mechanic/create', 'MechanicController@postCreate');
+      Route::post('mechanic/edit', 'MechanicController@update');
+    }
+    if (Auth::user()->hasRole('mechanic')) //Si el usuario logeado es un mecanico
+    {
+      //Hacer todas estas rutas validas
+      Route::get('mechanic', 'MechanicController@getIndex');
+    }
+    if (Auth::user()->hasRole('customer')) //Si el usuario logeado es un cliente
+    {
+      //Hacer todas estas rutas validas
+      Route::get('customer', 'CustomerController@getIndex');
+    }
+  }
 });
 
 Route::resource('mechanic', 'MechanicController');
