@@ -11,7 +11,11 @@
 	<p>Apellido: {{ $user->lastname }}</p>
 	<p>Email: {{ $user->email }}</p>
 
+	@if(Auth::User()->hasRole('owner'))
 	<p>{{ HTML::linkRoute('customer.edit', 'Editar', array($user->id), array('class' => 'btn btn-warning')) }}</p>
+	@else
+	<p>{{ HTML::link('mechanic/customers', 'Regresar', array('class' => 'btn btn-warning')) }}
+	@endif
 </div>
 
 

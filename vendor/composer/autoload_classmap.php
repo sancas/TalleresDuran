@@ -20,6 +20,7 @@ return array(
     'ClassPreloader\\Parser\\DirVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/DirVisitor.php',
     'ClassPreloader\\Parser\\FileVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/FileVisitor.php',
     'ClassPreloader\\Parser\\NodeTraverser' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/NodeTraverser.php',
+    'CreateCarsTable' => $baseDir . '/app/database/migrations/2015_04_07_122830_create_cars_table.php',
     'CreatePasswordRemindersTable' => $baseDir . '/app/database/migrations/2015_02_24_175402_create_password_reminders_table.php',
     'CreateRolesTable' => $baseDir . '/app/database/migrations/2015_03_10_024847_create_roles_table.php',
     'CreateTableTrabajos' => $baseDir . '/app/database/migrations/2015_03_10_172537_create_table_trabajos.php',

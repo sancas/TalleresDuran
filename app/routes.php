@@ -62,14 +62,34 @@ Route::group(array('before' => 'auth'), function(){
     {
       //Hacer todas estas rutas validas
       Route::get('mechanic', 'MechanicController@getIndex');
+      Route::get('mechanic/jobs', 'MechanicController@getJobs');
+      Route::get('mechanic/cars', 'MechanicController@getCars');
+      Route::get('mechanic/customers', 'MechanicController@getCustomers');
+      Route::get('trabajo/create', 'TrabajoController@getCreate');
+      Route::get('trabajo/edit', 'TrabajoController@edit');
+      Route::post('trabajo/create', 'TrabajoController@postCreate');
+      Route::post('trabajo/edit', 'TrabajoController@update');
+      Route::get('carro/create', 'CarroController@getCreate');
+      Route::get('carro/edit', 'CarroController@edit');
+      Route::post('carro/create', 'CarroController@postCreate');
+      Route::post('carro/edit', 'CarroController@update');
+      Route::get('customer/create', 'CustomerController@getCreate');
+      Route::get('customer/edit', 'CustomerController@edit');
+      Route::post('customer/create', 'CustomerController@postCreate');
+      Route::post('customer/edit', 'CustomerController@update');
     }
+
     if (Auth::user()->hasRole('customer')) //Si el usuario logeado es un cliente
     {
       //Hacer todas estas rutas validas
       Route::get('customer', 'CustomerController@getIndex');
+      Route::get('customer/cars', 'CustomerController@getCars');
+      Route::get('cars/{id}', 'CarroController@estado');
     }
   }
 });
 
 Route::resource('mechanic', 'MechanicController');
 Route::resource('customer', 'CustomerController');
+Route::resource('trabajo', 'TrabajoController');
+Route::resource('carro', 'CarroController');

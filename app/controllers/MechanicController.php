@@ -9,9 +9,25 @@ class MechanicController extends \BaseController {
 	 */
 	public function getIndex()
 	{
-
 		return View::make('mechanic.index');
-		
+	}
+
+	public function getJobs()
+	{
+		$trabajos = Trabajo::all();
+		return View::make('mechanic.job')->with('trabajos', $trabajos);
+	}
+
+	public function getCars()
+	{
+		$carros = Carro::all();
+		return View::make('mechanic.car')->with('carros', $carros);
+	}
+
+	public function getCustomers()
+	{
+		$users = User::all();
+		return View::make('mechanic.customer')->with('users', $users);
 	}
 
 	public function getCreate()

@@ -27,7 +27,9 @@
 				@endif
 				@if (Auth::user()->hasRole('mechanic'))
 
+					<li>{{ HTML::link('mechanic/customers', 'Clientes') }}</li>
 					<li>{{ HTML::link('mechanic/cars', 'Carros') }}</li>
+					<li>{{ HTML::link('mechanic/jobs', 'Trabajos') }}</li>
 
 				@endif
 				@if (Auth::user()->hasRole('customer'))

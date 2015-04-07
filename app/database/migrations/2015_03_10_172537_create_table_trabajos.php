@@ -18,6 +18,7 @@ class CreateTableTrabajos extends Migration {
 			$table->string('tipo');
 			$table->string('descripcion');
 			$table->string('estado');
+			$table->string('costo');
 			$table->timestamps();
 		});
 	}

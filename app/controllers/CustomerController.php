@@ -14,6 +14,11 @@ class CustomerController extends \BaseController {
 		
 	}
 
+	public function getCars()
+	{
+		return View::make('customer.cars');
+	}
+
 	public function getCreate()
 	{
 		return View::make('customer.form');

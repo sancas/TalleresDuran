@@ -6,7 +6,7 @@
 <div class="span well">
 	<h4>Lista clientes</h4>
 
-		<table class="table table-striped">
+	<table class="table table-striped">
 		<tr>
 			<th>Usuario</th>
 			<th>Nombre</th>
