@@ -62,9 +62,11 @@ Route::group(array('before' => 'auth'), function(){
     {
       //Hacer todas estas rutas validas
       Route::get('mechanic', 'MechanicController@getIndex');
-      Route::get('mechanic/jobs', 'MechanicController@getJobs');
+      //Route::get('mechanic/jobs', 'MechanicController@getJobs');
       Route::get('mechanic/cars', 'MechanicController@getCars');
       Route::get('mechanic/customers', 'MechanicController@getCustomers');
+      Route::get('mechanic/customers/{id}', 'MechanicController@getCarCustomer');
+      Route::get('mechanic/customers/{customerid}/car/{carroid}', 'MechanicController@getJobs');
       Route::get('trabajo/create', 'TrabajoController@getCreate');
       Route::get('trabajo/edit', 'TrabajoController@edit');
       Route::post('trabajo/create', 'TrabajoController@postCreate');

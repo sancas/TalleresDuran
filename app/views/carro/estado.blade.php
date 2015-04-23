@@ -4,7 +4,7 @@
 @section('content')
 
 <div class="span well">
-	@if ($id == 1)
+	@if ($carro_id == 1)
 	<h4>Nissan Sentra</h4>
 	<legend>Trabajos totales: 3</legend>
 	<legend>Enderezado</legend>
@@ -25,7 +25,7 @@
 	<p>Costo Total: $788.99 IVA incluido</p>
 	<p>Fecha aproximada de entrega: 13/04/2015</p>
 	<br /><br />
-	@elseif ($id == 2)
+	@elseif ($carro_id == 2)
 	<h4>Toyota Corolla</h4>
 	<legend>Trabajos totales: 2</legend>
 	<legend>Enderezado</legend>
@@ -41,7 +41,7 @@
 	<p>Costo Total: $1299 IVA incluido</p>
 	<p>Fecha aproximada de entrega: 28/04/2015</p>
 	<br /><br />
-	@elseif ($id == 3)
+	@elseif ($carro_id == 3)
 	<h4>Mitsubishi Lancer</h4>
 	<legend>Trabajos totales: 1</legend>
 	<legend>Pintura</legend>

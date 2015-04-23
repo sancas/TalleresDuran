@@ -9,14 +9,13 @@ class CustomerController extends \BaseController {
 	 */
 	public function getIndex()
 	{
-
 		return View::make('customer.index');
-		
 	}
 
 	public function getCars()
 	{
-		return View::make('customer.cars');
+		$carro = Auth::User()->carros;
+		return View::make('customer.cars', array('carros' => $carro));
 	}
 
 	public function getCreate()

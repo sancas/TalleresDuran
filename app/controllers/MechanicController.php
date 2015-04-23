@@ -12,10 +12,15 @@ class MechanicController extends \BaseController {
 		return View::make('mechanic.index');
 	}
 
-	public function getJobs()
+	public function getJobs($customerid, $carroid)
 	{
-		$trabajos = Trabajo::all();
-		return View::make('mechanic.job')->with('trabajos', $trabajos);
+		$customer = User::Find($customerid);
+		$carro = Carro::Find($carroid);
+		var_dump($customer);
+		var_dump($carro);
+		$trabajos = $customer->$carro->trabajos;
+		var_dump($trabajos);
+		//return View::make('mechanic.job')->with('trabajos', $trabajos);
 	}
 
 	public function getCars()
@@ -28,6 +33,13 @@ class MechanicController extends \BaseController {
 	{
 		$users = User::all();
 		return View::make('mechanic.customer')->with('users', $users);
+	}
+
+	public function getCarCustomer($id)
+	{
+		$customer = User::Find($id);
+		$carro = $customer->carros;
+		return View::make('mechanic.customercars', array('carros' => $carro, 'customer' => $customer));
 	}
 
 	public function getCreate()

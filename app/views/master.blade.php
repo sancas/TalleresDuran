@@ -44,7 +44,7 @@
 		</ul>
 		
 	</div>
-	<div class="span9">
+	<div class="span8">
 		@yield('content')
 	</div>
 </div>

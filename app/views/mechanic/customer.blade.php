@@ -18,7 +18,7 @@
 				<td>{{ $user->id }}</td>
 				<td>{{ $user->name }}</td>
 				<td>
-					{{ HTML::linkRoute('customer.show', 'Ver', array($user->id), array('class' => 'btn btn-info')) }}
+					{{ HTML::link("mechanic/customers/" . $user->id, 'Ver estado', array('class' => 'btn btn-info')) }}
 				</td>
 			</tr>
 			@endif

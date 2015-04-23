@@ -7,9 +7,9 @@ class CarroController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function estado($id)
+	public function estado($carro_id)
 	{
-		return View::make('carro/estado', array('id' => $id));
+		return View::make('carro/estado', array('carro_id' => $carro_id));
 	}
 	
 	public function getIndex()

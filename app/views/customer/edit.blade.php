@@ -7,9 +7,6 @@
 		<div class="well">
 			<h4>Editar Cliente</h4>
 			{{ Form::model($user, array('route' => array('customer.update', $user->id), 'method' => 'PATCH'), array('role' => 'form')) }}
-
-
-			
 				@if($errors->any())
 				<div class="alert alert-error">
 					<a href="#" class="close" data-dismiss="alert">&times;</a>

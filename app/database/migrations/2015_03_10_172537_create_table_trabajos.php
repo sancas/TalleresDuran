@@ -15,6 +15,7 @@ class CreateTableTrabajos extends Migration {
 		Schema::create('trabajos', function(Blueprint $table)
 		{
 			$table->increments('id');
+            $table->integer('carro_id');
 			$table->string('tipo');
 			$table->string('descripcion');
 			$table->string('estado');

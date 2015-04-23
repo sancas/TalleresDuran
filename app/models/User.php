@@ -118,4 +118,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
  
         $this->roles()->attach($assigned_roles);
     }
+
+    public function carros()
+    {
+    	return $this->hasMany('Carro');
+    }
 }
