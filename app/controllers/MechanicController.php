@@ -14,13 +14,38 @@ class MechanicController extends \BaseController {
 
 	public function getJobs($customerid, $carroid)
 	{
+		$carro = Carro::Find($carroid);
+		$customer = User::Find($customerid);
+		$trabajos = $carro->trabajos;
+		return View::make('mechanic.job', array('carro' => $carro, 'customer' => $customer, 'trabajos' => $trabajos));
+	}
+
+	public function carroListo($customerid, $carroid)
+	{
 		$customer = User::Find($customerid);
 		$carro = Carro::Find($carroid);
-		var_dump($customer);
-		var_dump($carro);
-		$trabajos = $customer->$carro->trabajos;
-		var_dump($trabajos);
-		//return View::make('mechanic.job')->with('trabajos', $trabajos);
+		if (is_null($carro))
+		{
+			return 'No existe!';
+		}
+		$carro->listo = true;
+		$carro->save();
+		$carro = $customer->carros;
+		return View::make('mechanic.customercars', array('carros' => $carro, 'customer' => $customer));
+	}
+
+	public function carroRecogido($customerid, $carroid)
+	{
+		$customer = User::Find($customerid);
+		$carro = Carro::Find($carroid);
+		if (is_null($carro))
+		{
+			return 'No existe!';
+		}
+		$carro->recogido = true;
+		$carro->save();
+		$carro = $customer->carros;
+		return View::make('mechanic.customercars', array('carros' => $carro, 'customer' => $customer));
 	}
 
 	public function getCars()
@@ -45,6 +70,16 @@ class MechanicController extends \BaseController {
 	public function getCreate()
 	{
 		return View::make('mechanic.form');
+	}
+
+	public function getCarCreate($customerid)
+	{
+		return View::make('mechanic.carCreate', array('customerid' => $customerid));
+	}
+
+	public function getJobCreate($customerid, $carid)
+	{
+		return View::make('mechanic.jobCreate', array('customerid' => $customerid, 'carid' => $carid));
 	}
 
 	public function show($id)
@@ -139,6 +174,35 @@ class MechanicController extends \BaseController {
 			return Redirect::to('mechanic/create')->withInput()->withErrors($v);
 
 		}
+	}
+
+	public function postCarCreate($customerid)
+	{
+		$input = Input::all();
+		$user = User::Find($customerid);
+		$carro = new Carro();
+		$carro->marca = $input['marca'];
+		$carro->placa = $input['placa'];
+		$carro->tarjetaCirculacion = $input['tarjetaCirculacion'];
+		
+		$user->carros()->save($carro);
+
+		return Redirect::route('carro.show', array($carro->id));
+	}
+
+	public function postJobCreate($customerid, $carid)
+	{
+		$input = Input::all();
+		$carro = Carro::Find($carid);
+		$trabajo = new Trabajo();
+		$trabajo->tipo = $input['tipo'];
+		$trabajo->descripcion = $input['descripcion'];
+		$trabajo->estado = $input['estado'];
+		$trabajo->costo = $input['costo'];
+		var_dump($carro);
+		$carro->trabajos()->save($trabajo);
+
+		return Redirect::route('trabajo.show', array($trabajo->id));
 	}
 
 	public function destroy($id)

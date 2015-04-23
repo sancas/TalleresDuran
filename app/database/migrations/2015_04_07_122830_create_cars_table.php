@@ -17,6 +17,8 @@ class CreateCarsTable extends Migration {
             $table->string('marca');
 			$table->string('placa');
 			$table->string('tarjetaCirculacion');
+			$table->boolean('listo')->default(false);
+			$table->boolean('recogido')->default(false);
             $table->timestamps();
         });
 	}

@@ -63,10 +63,16 @@ Route::group(array('before' => 'auth'), function(){
       //Hacer todas estas rutas validas
       Route::get('mechanic', 'MechanicController@getIndex');
       //Route::get('mechanic/jobs', 'MechanicController@getJobs');
-      Route::get('mechanic/cars', 'MechanicController@getCars');
+      //Route::get('mechanic/cars', 'MechanicController@getCars');
       Route::get('mechanic/customers', 'MechanicController@getCustomers');
       Route::get('mechanic/customers/{id}', 'MechanicController@getCarCustomer');
+      Route::get('mechanic/customers/{customerid}/addcar', 'MechanicController@getCarCreate');
+      Route::post('mechanic/customers/{customerid}/addcar', 'MechanicController@postCarCreate');
       Route::get('mechanic/customers/{customerid}/car/{carroid}', 'MechanicController@getJobs');
+      Route::get('mechanic/customers/{customerid}/car/{carroid}/addjob', 'MechanicController@getJobCreate');
+      Route::post('mechanic/customers/{customerid}/car/{carroid}/addjob', 'MechanicController@postJobCreate');
+      Route::get('mechanic/customers/{customerid}/car/{carroid}/listo', 'MechanicController@carroListo');
+      Route::get('mechanic/customers/{customerid}/car/{carroid}/recogido', 'MechanicController@carroRecogido');
       Route::get('trabajo/create', 'TrabajoController@getCreate');
       Route::get('trabajo/edit', 'TrabajoController@edit');
       Route::post('trabajo/create', 'TrabajoController@postCreate');
@@ -86,7 +92,7 @@ Route::group(array('before' => 'auth'), function(){
       //Hacer todas estas rutas validas
       Route::get('customer', 'CustomerController@getIndex');
       Route::get('customer/cars', 'CustomerController@getCars');
-      Route::get('cars/{id}', 'CarroController@estado');
+      Route::get('customer/cars/{id}', 'CarroController@estado');
     }
   }
 });

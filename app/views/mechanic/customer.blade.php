@@ -10,15 +10,17 @@
 		<tr>
 			<th>ID Usuario</th>
 			<th>Nombre</th>
-			<th colspan="1">Acciones</th>
+			<th>Email</th>
+			<th>Acciones</th>
 		</tr>
 		@foreach ($users as $user)
 			@if($user->hasRole('customer'))
 			<tr>
 				<td>{{ $user->id }}</td>
 				<td>{{ $user->name }}</td>
+				<td>{{ $user->email }}</td>
 				<td>
-					{{ HTML::link("mechanic/customers/" . $user->id, 'Ver estado', array('class' => 'btn btn-info')) }}
+					{{ HTML::link("mechanic/customers/" . $user->id, 'Ver carros', array('class' => 'btn btn-info')) }}
 				</td>
 			</tr>
 			@endif

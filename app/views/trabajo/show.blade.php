@@ -6,7 +6,6 @@
 <div class="span well">
 	<h4>Trabajo {{ $trabajo->id }}</h4>
 
-	<p>Carro ID: {{ $trabajo->car_id }}</p>
 	<p>Tipo: {{ $trabajo->tipo }}</p>
 	<p>Descripcion: {{ $trabajo->descripcion }}</p>
 	<p>Estado: {{ $trabajo->estado }}</p>

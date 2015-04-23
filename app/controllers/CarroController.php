@@ -9,7 +9,10 @@ class CarroController extends \BaseController {
 	 */
 	public function estado($carro_id)
 	{
-		return View::make('carro/estado', array('carro_id' => $carro_id));
+		$carro = Carro::find($carro_id);
+		$trabajos = $carro->trabajos;
+		$customer = Auth::User();
+		return View::make('carro/estado', array('customer' => $customer,'carro' => $carro, 'trabajos' => $trabajos));
 	}
 	
 	public function getIndex()
