@@ -14,9 +14,19 @@
 				<p>Estado:
 					@if ($carro->recogido)
 					El carro ya fue entregado
+					<div class="progress">
+					  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 100%">
+					    100% Complete
+					  </div>
+					</div>
 					@else
 						@if ($carro->listo)
 						El carro ya esta listo y puede pasar a recogerlo
+						<div class="progress">
+						  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 100%">
+						    100% Complete
+						  </div>
+						</div>
 						@else
 						El carro aun se encuentra en mantenimiento
 						@endif

@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div class="span well">
+<div class="row well">
 	<h4>Bienvenido {{ ucwords(Auth::user()->username) }}</h4>
 	<h3>Usted es un mecanico</h3>
 </div>

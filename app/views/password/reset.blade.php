@@ -11,9 +11,9 @@
 			@endif
 			 
 			{{ Form::open(array('route' => array('password.update', $token))) }}
-			{{ Form::text('email', '', array('placeholder' => 'Email')) }}<br>
-			{{ Form::password('password', array('placeholder' => 'Password')) }}<br>
-			{{ Form::password('password_confirmation', array('placeholder' => 'Confirmar Password')) }}<br>
+			{{ Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email')) }}
+			{{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) }}
+			{{ Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirmar Password')) }}<br />
 			{{ Form::hidden('token', $token) }}
 			{{ Form::submit('Submit', array('class' => 'btn btn-success')) }}
 			 

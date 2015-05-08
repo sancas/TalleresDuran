@@ -12,7 +12,7 @@
 			  <p>Un email con el link para resetear el password ha sido enviado</p>
 			@endif
 			{{ Form::open(array('route' => 'password.request')) }}
-			{{ Form::text('email', '', array('placeholder' => 'Email')) }}<br>
+			{{ Form::text('email', '', array('class' => 'form-control','placeholder' => 'Email')) }}<br>
 			{{ Form::submit('Submit', array('class' => 'btn btn-success')) }}
 			{{ Form::close() }}
 		</div>	

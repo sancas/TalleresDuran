@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div class="span well">
+<div class="row well">
 	<h4>Lista mecanicos</h4>
 
 	<table class="table table-striped">

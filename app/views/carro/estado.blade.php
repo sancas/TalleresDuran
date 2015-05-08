@@ -12,7 +12,12 @@
 				@foreach ($trabajos as $trabajo)
 					<legend>{{ $trabajo->tipo }}</legend>
 					<p>Descripcion: {{ $trabajo->descripcion }}</p>
-					<p>Estado: {{ $trabajo->estado }}</p>
+					<p>Estado: </p>
+					<div class="progress">
+					  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="{{ $trabajo->estado }}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{ $trabajo->estado }}%">
+					    {{ $trabajo->estado }}% Complete
+					  </div>
+					</div>
 					<p>Costo: {{ $trabajo->costo }}</p>
 				@endforeach
 			@else

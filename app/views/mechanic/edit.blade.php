@@ -13,11 +13,11 @@
 					{{ implode('', $errors->all('<li class="error">:message</li>')) }}
 				</div>
 				@endif
-				{{ Form::text('username', $user->username, array('placeholder' => 'Username', 'readonly' => 'true')) }}<br>
-				{{ Form::text('email', $user->email, array('placeholder' => 'Email')) }}<br>
-				{{ Form::text('name', $user->name, array('placeholder' => 'Nombre')) }}<br>
-				{{ Form::text('lastname', $user->lastname, array('placeholder' => 'Apellido')) }}<br>
-				{{ Form::password('password', array('placeholder' => 'Password')) }}<br>
+				{{ Form::text('username', $user->username, array('class' => 'form-control', 'placeholder' => 'Username', 'readonly' => 'true')) }}
+				{{ Form::text('email', $user->email, array('class' => 'form-control', 'placeholder' => 'Email')) }}
+				{{ Form::text('name', $user->name, array('class' => 'form-control', 'placeholder' => 'Nombre')) }}
+				{{ Form::text('lastname', $user->lastname, array('class' => 'form-control', 'placeholder' => 'Apellido')) }}
+				{{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) }}<br />
 				{{ Form::submit('Editar', array('class' => 'btn btn-success')) }}
 				{{ HTML::link('owner/mechanic', 'Cancelar', array('class' => 'btn btn-danger')) }}<br>
 			{{ Form::close() }}

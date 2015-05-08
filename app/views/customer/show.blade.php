@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div class="span well">
+<div class="row well">
 	<h4>Cliente {{ $user->id }}</h4>
 
 	<p>Usuario: {{ $user->username }}</p>

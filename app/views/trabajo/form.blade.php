@@ -13,13 +13,13 @@
 				{{ implode('', $errors->all('<li class="error">:message</li>')) }}
 			</div>
 			@endif
-			{{ Form::text('car_id', '', array('placeholder' => 'ID Carro')) }}<br>
-			{{ Form::text('tipo', '', array('placeholder' => 'Tipo')) }}<br>
-			{{ Form::text('descripcion', '', array('placeholder' => 'Descripcion')) }}<br>
-			{{ Form::text('estado', '', array('placeholder' => 'Estado')) }}<br>
-			{{ Form::text('costo', '', array('placeholder' => 'Costo')) }}<br>
+			{{ Form::text('car_id', '', array('class' => 'form-control', 'placeholder' => 'ID Carro')) }}
+			{{ Form::text('tipo', '', array('class' => 'form-control', 'placeholder' => 'Tipo')) }}
+			{{ Form::text('descripcion', '', array('class' => 'form-control', 'placeholder' => 'Descripcion')) }}
+			{{ Form::text('estado', '', array('class' => 'form-control', 'placeholder' => 'Estado')) }}
+			{{ Form::text('costo', '', array('class' => 'form-control', 'placeholder' => 'Costo')) }}<br />
 			{{ Form::submit('Crear', array('class' => 'btn btn-success')) }}
-			{{ HTML::link('mechanic/jobs', 'Cancelar', array('class' => 'btn btn-danger')) }}<br>
+			{{ HTML::link('mechanic/customers', 'Cancelar', array('class' => 'btn btn-danger')) }}<br>
 			{{ Form::close() }}
 		</div>
 	</div>

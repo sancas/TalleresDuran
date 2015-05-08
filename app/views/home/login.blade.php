@@ -17,10 +17,12 @@
 				{{ implode('', $errors->all('<li class="error">:message</li>')) }}
 			</div>
 			@endif
-			{{ Form::text('email', '', array('placeholder' => 'Email')) }}<br>
-			{{ Form::password('password', array('placeholder' => 'Password')) }}<br>
+			{{ Form::label('email', 'Correo Electronico', array('class' => 'sr-only'))}}
+			{{ Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email')) }}
+			{{ Form::label('password', 'Password', array('class' => 'sr-only')) }}
+			{{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) }}<br />
 			{{ Form::submit('Login', array('class' => 'btn btn-success')) }}
-			{{ HTML::link('register', 'Registrarse', array('class' => 'btn btn-primary')) }}<br><br>
+			{{ HTML::link('register', 'Registrarse', array('class' => 'btn btn-primary')) }}<br /><br />
 			{{ HTML::link('password/reset', 'Recuperar contraseña', array('class' => 'btn btn-danger')) }}
 			{{ Form::close() }}
 			@endif

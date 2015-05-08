@@ -24,9 +24,15 @@ class MechanicController extends \BaseController {
 	{
 		$customer = User::Find($customerid);
 		$carro = Carro::Find($carroid);
+		$trabajos = $carro->trabajos;
 		if (is_null($carro))
 		{
 			return 'No existe!';
+		}
+		foreach($trabajos as $trabajo)
+		{
+			$trabajo->estado = 100;
+			$trabajo->save();
 		}
 		$carro->listo = true;
 		$carro->save();
@@ -199,7 +205,6 @@ class MechanicController extends \BaseController {
 		$trabajo->descripcion = $input['descripcion'];
 		$trabajo->estado = $input['estado'];
 		$trabajo->costo = $input['costo'];
-		var_dump($carro);
 		$carro->trabajos()->save($trabajo);
 
 		return Redirect::route('trabajo.show', array($trabajo->id));

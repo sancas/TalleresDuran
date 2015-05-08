@@ -16,9 +16,9 @@
 					{{ implode('', $errors->all('<li class="error">:message</li>')) }}
 				</div>
 				@endif
-				{{ Form::text('marca', $carro->marca, array('placeholder' => 'Tipo')) }}<br>
-				{{ Form::text('placa', $carro->placa, array('placeholder' => 'Descripcion')) }}<br>
-				{{ Form::text('tarjetaCirculacion', $carro->tarjetaCirculacion, array('placeholder' => 'Estado')) }}<br>
+				{{ Form::text('marca', $carro->marca, array('class' => 'form-control', 'placeholder' => 'Tipo')) }}
+				{{ Form::text('placa', $carro->placa, array('class' => 'form-control', 'placeholder' => 'Descripcion')) }}
+				{{ Form::text('tarjetaCirculacion', $carro->tarjetaCirculacion, array('class' => 'form-control', 'placeholder' => 'Estado')) }}<br />
 				{{ Form::submit('Editar', array('class' => 'btn btn-success')) }}
 				{{ HTML::link('mechanic/cars', 'Cancelar', array('class' => 'btn btn-danger')) }}<br>
 			{{ Form::close() }}

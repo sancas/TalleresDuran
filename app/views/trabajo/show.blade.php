@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div class="span well">
+<div class="row well">
 	<h4>Trabajo {{ $trabajo->id }}</h4>
 
 	<p>Tipo: {{ $trabajo->tipo }}</p>
