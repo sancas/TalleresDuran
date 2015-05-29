@@ -19,7 +19,7 @@
 				{{ Form::text('lastname', $user->lastname, array('class' => 'form-control', 'placeholder' => 'Apellido')) }}
 				{{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) }}<br />
 				{{ Form::submit('Editar', array('class' => 'btn btn-success')) }}
-				{{ HTML::link('owner/customer', 'Cancelar', array('class' => 'btn btn-danger')) }}<br>
+				{{ HTML::link('mechanic/customers', 'Cancelar', array('class' => 'btn btn-danger')) }}<br>
 			{{ Form::close() }}
 		</div>
 	</div>

@@ -81,7 +81,7 @@ class CustomerController extends \BaseController {
 		}
 		$user->save();
 
-		return Redirect::route('customer.show', array($user->id));
+		return Redirect::route('mechanic.customers');
 	}
 
 	public function postCreate()
@@ -108,7 +108,7 @@ class CustomerController extends \BaseController {
 
 			$user->makeEmployee('customer');
 
-			return Redirect::route('customer.show', array($user->id));
+			return Redirect::route('mechanic.customers');
 
 		} else {
 
@@ -121,6 +121,6 @@ class CustomerController extends \BaseController {
 	{
 		User::destroy($id);
 
-		return Redirect::to('owner/customer');
+		return Redirect::to('mechanic/customers');
 	}
 }

@@ -58,6 +58,29 @@ Route::group(array('before' => 'auth'), function(){
       Route::get('mechanic/edit', 'MechanicController@edit');
       Route::post('mechanic/create', 'MechanicController@postCreate');
       Route::post('mechanic/edit', 'MechanicController@update');
+
+      Route::get('mechanic/customers', 'MechanicController@getCustomers');
+      Route::get('mechanic/customers/{id}', 'MechanicController@getCarCustomer');
+      Route::get('mechanic/customers/{customerid}/addcar', 'MechanicController@getCarCreate');
+      Route::post('mechanic/customers/{customerid}/addcar', 'MechanicController@postCarCreate');
+      Route::get('mechanic/customers/{customerid}/car/{carroid}', 'MechanicController@getJobs');
+      Route::get('mechanic/customers/{customerid}/car/{carroid}/addjob', 'MechanicController@getJobCreate');
+      Route::post('mechanic/customers/{customerid}/car/{carroid}/addjob', 'MechanicController@postJobCreate');
+      Route::get('mechanic/customers/{customerid}/car/{carroid}/listo', 'MechanicController@carroListo');
+      Route::get('mechanic/customers/{customerid}/car/{carroid}/recogido', 'MechanicController@carroRecogido');
+      Route::get('trabajo/create', 'TrabajoController@getCreate');
+      Route::get('trabajo/edit', 'TrabajoController@edit');
+      Route::post('trabajo/create', 'TrabajoController@postCreate');
+      Route::post('trabajo/edit', 'TrabajoController@update');
+      Route::get('carro/create', 'CarroController@getCreate');
+      Route::get('carro/edit', 'CarroController@edit');
+      Route::post('carro/create', 'CarroController@postCreate');
+      Route::post('carro/edit', 'CarroController@update');
+      Route::get('customer/create', 'CustomerController@getCreate');
+      Route::get('customer/edit', 'CustomerController@edit');
+      Route::post('customer/create', 'CustomerController@postCreate');
+      Route::post('customer/edit', 'CustomerController@update');
+
     }
     if (Auth::user()->hasRole('mechanic')) //Si el usuario logeado es un mecanico
     {

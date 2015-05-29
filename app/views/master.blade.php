@@ -6,14 +6,17 @@
 	{{ HTML::script('js/jquery.js') }}
 	{{ HTML::script('js/bootstrap.js') }}
 	{{ HTML::style('css/bootstrap.css') }}
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	{{ HTML::style('css/social-buttons.css') }}
+	{{ HTML::style('css/sticky-footer.css') }}
 
 </head>
 <body>
-<div class="row-fluid">
-	<div class="span12 well">
+<div class="container">
+	<div class="well well-lg">
 		<h1>Talleres Duran</h1>
 	</div>
-	<nav class="navbar navbar-default col-md-6 col-md-offset-3">
+	<nav class="navbar navbar-default col-md-8 col-md-offset-2">
 		<div class="container-fluid">
 			@if (Auth::user())
 				<div class="navbar-header">
@@ -26,7 +29,7 @@
 			      	@if (Auth::user()->hasRole('owner'))
 			      		<li class="navbar-left">{{ HTML::link('owner', 'Home') }}</li>
 						<li>{{ HTML::link('owner/mechanic', 'Mecanicos') }}</li>
-						<li>{{ HTML::link('owner/customer', 'Clientes') }}</li>
+						<li>{{ HTML::link('mechanic/customers', 'Clientes') }}</li>
 					@endif
 					@if (Auth::user()->hasRole('mechanic'))
 						<li class="navbar-left">{{ HTML::link('mechanic', 'Home') }}</li>
@@ -46,11 +49,19 @@
 		    </div>
 		</div>
 	</nav>
-</div>
-	<div class="container-fluid row">
-		<div class="col-md-6 col-md-offset-3 text-center">
-			@yield('content')
-		</div>
+	<div class="col-md-8 col-md-offset-2 text-center">
+		@yield('content')
 	</div>
+</div>
+<footer class="footer">
+	<div class="container">
+		<p class="text-muted text-center">	
+			<button class="btn btn-facebook"><i class="fa fa-facebook"></i></button>
+			<button class="btn btn-twitter"><i class="fa fa-twitter"></i></button>
+			<button class="btn btn-youtube"><i class="fa fa-youtube"></i></button>
+			<span>CopyRight &#169; 2015</span>
+		</p>
+	</div>
+</footer>
 </body>
 </html>
